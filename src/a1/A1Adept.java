@@ -69,7 +69,7 @@ public class A1Adept {
 		double min = custPay[0];
 		double max = custPay[0];
 		
-		for(int j=1; j < custNames.length; j++) {
+		for(int j=0; j < custNames.length; j++) {
 			if (custPay[j] >= max) {
 				biggest = custNames[j];
 				biggestAmount = custPay[j];
@@ -86,7 +86,7 @@ public class A1Adept {
 			}
 		}
 		int custCount = custNames.length;
-		average = (total / custCount);
+		average = (float)(total / custCount);
 		
 		System.out.println("Biggest: " + biggest + " (" + String.format("%.2f",biggestAmount) + ")");
 		System.out.println("Smallest: " + smallest + " (" + String.format("%.2f",smallestAmount) + ")");
