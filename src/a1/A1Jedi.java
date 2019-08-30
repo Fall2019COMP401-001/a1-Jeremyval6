@@ -42,6 +42,8 @@ for(int i = 0; i < peopleNum; i++) {
 	
 	//Records the number of items bought by this customer
 	int foodAmount = s.nextInt();
+	int[] custItemAmount = new int[foodAmount];
+	String[] custFoodName = new String[foodAmount];
 	
 	//Every iteration, adds the number of a specific item bought by this customer to
 	//the numItems element that corresponds to the item name in itemNames
@@ -52,11 +54,10 @@ for(int i = 0; i < peopleNum; i++) {
 		
 		//Records the name of this specific item
 		String foodName = s.next();
-		
-		//Searches for the item in itemNames, and adds the number of items bought
-		//to the corresponding element in numItems, as well as increasing the
-		//number of people who bought that item by one in the corresponding
-		//element in numPeople
+	
+		custItemAmount[j] = itemCount;
+		custFoodName[j] = foodName;
+	
 		for(int k = 0; k < foodNames.length; k++) {
 			
 			if(foodName.equals(foodNames[k])) {
@@ -72,20 +73,49 @@ for(int i = 0; i < peopleNum; i++) {
 		
 	}
 	
+	int[] repeats = new int[foodAmount];
+	for(int x=0; x<foodAmount; x++) {
+		for(int y= x+1; y < foodAmount; y++) {
+			if(custFoodName[x].equals(custFoodName[y])) {
+				repeats[x] += 1;
+			
+			}
+			
+		}
+		//if(repeats[x] == custFoodName.length-1) {
+			//repeats[x] = repeats[x] -1;
+		//}
+	}
+	for(int x=0;x < foodNames.length; x++) {
+		if(custFoodName.length == 1) {
+			if(custFoodName[0].equals(foodNames[x])){
+		
+			}
+	}
+	else {
+		for(int y=0; y < foodAmount; y++) {
+			if(custFoodName[y].equals(foodNames[x])) {
+				numPeople[x] = numPeople[x] - repeats[y];
+			}
+		}
+	}
 }
 
+}
+
+
 //Prints out the information for each item
-for(int i = 0; i < foodNames.length; i++) {
+for(int a = 0; a < foodNames.length; a++) {
 	
 	//If nobody bought an item, the message is slightly different
-	if(numPeople[i] == 0) {
+	if(numPeople[a] == 0) {
 		
-		System.out.println("No customers bought " + foodNames[i]);
+		System.out.println("No customers bought " + foodNames[a]);
 		
 	}
 	else {
 	
-		System.out.println(numPeople[i] + " customers bought " + foodCount[i] + " " + foodNames[i]);
+		System.out.println(numPeople[a] + " customers bought " + foodCount[a] + " " + foodNames[a]);
 	
 	}
 	
@@ -93,8 +123,8 @@ for(int i = 0; i < foodNames.length; i++) {
 
 s.close();
 
-}
-}
+
+}}
 
 
 
