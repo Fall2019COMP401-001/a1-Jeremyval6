@@ -66,7 +66,7 @@ public class A1Adept {
 			
 		}
 	
-		for(int j=0; j < custNames.length; j++) {
+		for(int j=1; j < custNames.length; j++) {
 			if (custPay[j] > custPay[j-1]) {
 				biggest = custNames[j];
 				biggestAmount = custPay[j];
