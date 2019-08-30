@@ -1,6 +1,5 @@
 package a1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class A1Adept {
@@ -8,98 +7,66 @@ public class A1Adept {
 
 	public static void main(String[] args) {
 		
-		Scanner s = new Scanner(System.in);
-
+Scanner s= new Scanner(System.in);
+		
 		// Your code follows here.
-		
-		String biggest = null;
-		double biggestAmount = 0;
-		String smallest = null;
-		double smallestAmount = 0;
-		double average = 0;
-		double total = 0;
-		
-		String[] itemNames = new String[s.nextInt()];
-		double[] itemPrices = new double[itemNames.length];
-		
-		
-		for(int i=0; i <itemNames.length; i++) {
-			
-			itemNames[i] = s.next();
-			itemPrices[i]= s.nextDouble();
-		}
-		
-		//System.out.println(Arrays.toString(itemNames));
-		//System.out.println(Arrays.toString(itemPrices));
-		
-		
-		String[] custNames = new String[s.nextInt()];
-		double[] custPay = new double[custNames.length];
+
+String[] itemNames = new String[s.nextInt()];
+double[] itemPrices = new double[itemNames.length];
+for(int i=0; i <itemNames.length; i++) {
 	
+	itemNames[i] = s.next();
+	itemPrices[i]= s.nextDouble();
+}
+	      //
+        int peopleCount=s.nextInt();
+		int itemCount;int number;
+		double max=0.0;
+		double min=1000.0;
+		String Max=" ";
+		String Min=" ";
+		String name;
+		String itemName;
+		double price = 0.0;
+		double total=0.0;
 		
-		for(int j=0; j < custNames.length; j++) {
-			// every iteration, a name is being added onto the list of names custNames
-			
-			custNames[j] = s.next() + " " + s.next();
-			//name is copied down
-			int itemCount = s.nextInt();
-			//number of items that that specific person bought, will be used to run through that many iterations of item adder
-			for(int a=0; a < itemCount; a++) {
-				//goes as many times as there are items
-				int specificFoodCount = s.nextInt();
-				//first input is how much of that first food the person bought. Stored for a multiplier for total price
-				String specificFood = s.next();
-				// gets the name of the specific food that the person purchased
-					for(int k = 0; k < itemNames.length; k++) {
-					//running through all the food options gathered to find which one it is and get its price
-						if(specificFood.equals(itemNames[k])) {
-							//If the item matches, then that customers pay is increased by the price of that item times the amount that person purchased
-							double thatPay = (itemPrices[k] * specificFoodCount);
-							custPay[j] = custPay[j] + thatPay ;
-							break;   
-					}
-						//still in the for loop for finding food
-				}
-					//getting food counts and food names for each food
-			}
-			//getting peoples names
-			
-		}
-	
-		double min = custPay[0];
-		double max = custPay[0];
-		
-		for(int j=0; j < custNames.length; j++) {
-			if (custPay[j] >= max) {
-				biggest = custNames[j];
-				biggestAmount = custPay[j];
+       for(int i=0;i<peopleCount;i++) {
+    	name=s.next()+" "+s.next();
+    	itemCount=s.nextInt();
+    	double purchase=0.0;
+    	
+    			for(int j=0;j<itemCount;j++) {
+    				number=s.nextInt(); 
+    				itemName=s.next();
+    			for(int k=0;k<itemNames.length;k++) {
+    		          if(itemNames[k].equals(itemName))  
+    		           {         
+    		    	  price=itemPrices[k];
+    		    	  purchase+=price*number;
+       		           }
+    		   }
+    	              }
+    			if(purchase>max) {
+     		    	 Max=name;
+     		    	 max=purchase;}
+     		    	if(purchase<min) {
+     		    		min=purchase;
+     		    		Min=name;}
+     		    	total+=purchase;
+       }
+       System.out.println("Biggest"+":"+" "+Max+" ("+String.format("%.2f",max)+")");
+       System.out.println("Smallest: "+Min+" ("+String.format("%.2f",min)+")");
+	   System.out.println("Average: "+String.format("%.2f",total/peopleCount));
+	   
+	   s.close();
+	}
+    		     
+    
+           
 				
-			} if (custPay[j] <= min) {
-				smallest = custNames[j];
-				smallestAmount = custPay[j];
-			}
-												
-		
-		for(int b = 0; b < custNames.length; b++) {
-			total = total + custPay[b];
-			
-			}
-		}
-		int custCount = custNames.length;
-		average = (float)(total / custCount);
-		
-		System.out.println("Biggest: " + biggest + " (" + String.format("%.2f",biggestAmount) + ")");
-		System.out.println("Smallest: " + smallest + " (" + String.format("%.2f",smallestAmount) + ")");
-		System.out.println("Average: " + String.format("%.2f", average));
-		
-		//System.out.println(Arrays.toString(custNames));
-		//System.out.println(Arrays.toString(custPay));
-		
-		s.close();
-		
-	}}
-		
-	
+				
+
+}
 				
 				
 				
