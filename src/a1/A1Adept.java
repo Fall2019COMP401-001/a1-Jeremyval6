@@ -29,8 +29,8 @@ public class A1Adept {
 			itemPrices[i]= s.nextDouble();
 		}
 		
-		System.out.println(Arrays.toString(itemNames));
-		System.out.println(Arrays.toString(itemPrices));
+		//System.out.println(Arrays.toString(itemNames));
+		//System.out.println(Arrays.toString(itemPrices));
 		
 		
 		String[] custNames = new String[s.nextInt()];
@@ -66,14 +66,17 @@ public class A1Adept {
 			
 		}
 	
+		double min = custPay[0];
+		double max = custPay[0];
+		
 		for(int j=1; j < custNames.length; j++) {
-			if (custPay[j] > custPay[j-1]) {
+			if (custPay[j] > max) {
 				biggest = custNames[j];
 				biggestAmount = custPay[j];
 				
-			} else {
-				smallest = custNames[j-1];
-				smallestAmount = custPay[j-1];
+			} if (custPay[j] < min) {
+				smallest = custNames[j];
+				smallestAmount = custPay[j];
 			}
 												
 		
@@ -83,13 +86,13 @@ public class A1Adept {
 			}
 		}
 		
-		average = total / custNames.length;
+		average = (total / custNames.length);
 		
-		System.out.println("Biggest: " + biggest + "(" + biggestAmount + ")");
-		System.out.println("Smallest: " + smallest + "(" + smallestAmount + ")");
-		System.out.println("Average: " + String.format("%.2f",average));
+		System.out.println("Biggest: " + biggest + " (" + String.format("%.2f",biggestAmount) + ")");
+		System.out.println("Smallest: " + smallest + " (" + String.format("%.2f",smallestAmount) + ")");
+		System.out.println("Average: " + String.format("%.2f", average));
 		
-		System.out.println(Arrays.toString(custNames));
+		//System.out.println(Arrays.toString(custNames));
 		//System.out.println(Arrays.toString(custPay));
 		
 		s.close();
