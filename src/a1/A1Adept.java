@@ -12,7 +12,12 @@ public class A1Adept {
 
 		// Your code follows here.
 		
-		
+		String biggest = null;
+		double biggestAmount = 0;
+		String smallest = null;
+		double smallestAmount = 0;
+		double average = 0;
+		double total = 0;
 		
 		String[] itemNames = new String[s.nextInt()];
 		double[] itemPrices = new double[itemNames.length];
@@ -37,9 +42,9 @@ public class A1Adept {
 			
 			custNames[j] = s.next() + " " + s.next();
 			//name is copied down
-		
+			int itemCount = s.nextInt();
 			//number of items that that specific person bought, will be used to run through that many iterations of item adder
-			for(int a=0; a < s.nextInt(); a++) {
+			for(int a=0; a < itemCount; a++) {
 				//goes as many times as there are items
 				int specificFoodCount = s.nextInt();
 				//first input is how much of that first food the person bought. Stored for a multiplier for total price
@@ -58,9 +63,32 @@ public class A1Adept {
 					//getting food counts and food names for each food
 			}
 			//getting peoples names
-		}										
-		
 			
+		}
+	
+		for(int j=0; j < custNames.length; j++) {
+			if (custPay[j] > custPay[j-1]) {
+				biggest = custNames[j];
+				biggestAmount = custPay[j];
+				
+			} else {
+				smallest = custNames[j-1];
+				smallestAmount = custPay[j-1];
+			}
+												
+		
+		for(int b = 0; b < custNames.length; b++) {
+			total = total + custPay[b];
+			
+			}
+		}
+		
+		average = total / custNames.length;
+		
+		System.out.println("Biggest: " + biggest + "(" + biggestAmount + ")");
+		System.out.println("Smallest: " + smallest + "(" + smallestAmount + ")");
+		System.out.println("Average: " + String.format("%.2f",average));
+		
 		System.out.println(Arrays.toString(custNames));
 		//System.out.println(Arrays.toString(custPay));
 		

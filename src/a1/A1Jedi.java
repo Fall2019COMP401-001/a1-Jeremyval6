@@ -63,7 +63,7 @@ for(int i = 0; i < peopleNum; i++) {
 				
 				foodCount[k] += itemCount;
 				numPeople[k]++;
-				
+				//How to handle one person buying the same food on multiple lines
 				break;
 				
 			}
