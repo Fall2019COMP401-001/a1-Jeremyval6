@@ -1,6 +1,7 @@
 package a1;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class A1Jedi {
 
@@ -82,14 +83,14 @@ for(int i = 0; i < peopleNum; i++) {
 			}
 			
 		}
-		//if(repeats[x] == custFoodName.length-1) {
-			//repeats[x] = repeats[x] -1;
-		//}
+		if(repeats[x] == custFoodName.length-1) {
+			repeats[x] = repeats[x] -1;
+		}
 	}
 	for(int x=0;x < foodNames.length; x++) {
 		if(custFoodName.length == 1) {
 			if(custFoodName[0].equals(foodNames[x])){
-		
+		//nada
 			}
 	}
 	else {
@@ -120,7 +121,9 @@ for(int a = 0; a < foodNames.length; a++) {
 	}
 	
 }
-
+System.out.println(Arrays.toString(foodNames));
+System.out.println(Arrays.toString(foodCount));
+System.out.println(Arrays.toString(numPeople));
 s.close();
 
 
