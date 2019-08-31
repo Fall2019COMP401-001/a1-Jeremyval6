@@ -9,7 +9,7 @@ public class A1Adept {
 		
 Scanner s= new Scanner(System.in);
 		
-		// Your code follows here.
+		
 
 String[] itemNames = new String[s.nextInt()];
 double[] itemPrices = new double[itemNames.length];
@@ -21,10 +21,10 @@ for(int i=0; i <itemNames.length; i++) {
 	      //
         int peopleCount=s.nextInt();
 		int itemCount;int number;
-		double max=0.0;
-		double min=1000.0;
 		String Max=" ";
 		String Min=" ";
+		double max=0.0;
+		double min=1000.0;
 		String name;
 		String itemName;
 		double price = 0.0;
